@@ -21,36 +21,51 @@ public class PaintCuadrado extends JPanel implements MouseListener {
     private int x2 = 0;
     private int y1 = 0;
     private int y2 = 0;
+    
+    int dimx, dimy;
 
     private Color colorLinea = Color.BLACK;
     private boolean pintar;
-    
-    
+
     public PaintCuadrado() {
 
         this.addMouseListener(this);
 
     }
 
-    public void init(){
-        this.resize(600,400);
+    public void init() {
+        this.resize(600, 400);
         pintar = false;
     }
+
     public void paint(Graphics g) {
-        
+
         super.paint(g);
-        
-        int x,y;
+
+        int x, y;
         int ancho, alto;
-        
-            ancho = this.x2;
-            alto  = this.y2;
-        
-            g.setColor(Color.BLACK);
-            x=40; y=100;
-            
-            g.drawString("Cuadrado[" + ancho + " x " + alto + "]", x, y);
+
+        ancho = this.x1;
+        alto = this.y1;
+
+        g.setColor(Color.BLACK);
+        x = 40;
+        y = 100;
+
+        g.drawString("Cuadrado[" + ancho + " x " + alto + "]", x, y);
         //--------------------------------------------------------------------//
+
+        
+        dimx = 140;
+        dimy = 100;
+
+        g.setColor(this.colorLinea);
+        g.drawLine(this.x1 - this.dimx, this.y1 - this.dimy, this.x1 + this.dimx, this.y1 - this.dimy);
+        g.drawLine(this.x1 - this.dimx, this.y1 + this.dimy, this.x1 + this.dimx, this.y1 + this.dimy);
+        g.drawLine(this.x1 - this.dimx, this.y1 + this.dimy, this.x1 - this.dimx, this.y1 - this.dimy);
+        g.drawLine(this.x1 + this.dimx, this.y1 + this.dimy, this.x1 + this.dimx, this.y1 - this.dimy);
+        g.setColor(this.colorLinea);
+        /*
             x=180; y=90;
             
             g.setColor(this.colorLinea);            
@@ -59,9 +74,8 @@ public class PaintCuadrado extends JPanel implements MouseListener {
             //------------------------------------------------------------//
             g.setColor(Color.black);
             g.drawRect(x, y, ancho, alto);
-        
+         */
     }
-
 
     @Override
     public void mouseClicked(MouseEvent e) {
@@ -73,11 +87,11 @@ public class PaintCuadrado extends JPanel implements MouseListener {
 
     @Override
     public void mouseReleased(MouseEvent e) {
-        
+
         JOptionPane.showMessageDialog(this, e.getPoint());
-        
-        this.x2 = e.getX();
-        this.y2 = e.getY();
+
+        this.x1 = e.getX();
+        this.y1 = e.getY();
         super.repaint();
 
     }
@@ -129,5 +143,5 @@ public class PaintCuadrado extends JPanel implements MouseListener {
     public void setColorLinea(Color colorLinea) {
         this.colorLinea = colorLinea;
     }
-    
+
 }

@@ -77,6 +77,11 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         jMenu1.add(jMenuItem3);
 
         jMenuItem4.setText("Cuadrado");
+        jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenuItem4ActionPerformed(evt);
+            }
+        });
         jMenu1.add(jMenuItem4);
 
         jMenuItem5.setText("Estrella");
@@ -140,6 +145,14 @@ public class VentanaPrincipal extends javax.swing.JFrame {
         ventanaFiguras.setVisible(true);
         this.jDesktopPane1.add(ventanaFiguras);
     }//GEN-LAST:event_jMenuItem5ActionPerformed
+
+    private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
+        var ventanaFiguras= new VentanaCuadrado();
+        ventanaFiguras.setClosable(true);
+        ventanaFiguras.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        ventanaFiguras.setVisible(true);
+        this.jDesktopPane1.add(ventanaFiguras);
+    }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     /**
      * @param args the command line arguments
